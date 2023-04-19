@@ -1,11 +1,14 @@
 name: Delivery Pipeline
 on: [push]
 jobs:
-  commit:
+  Commit:
     name: Commit Stage
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
     steps:
-      - name: Checkout code
+      - name: Checkout code te
         uses: actions/checkout@v3
 
       - name: Setup Node.js
@@ -24,24 +27,53 @@ jobs:
 
       - name: Skapa Release Candidate
         run: pnpm generate
+        env:
+          NUXT_APP_BASE_URL: /${{ github.event.repository.name }}/
 
-  acceptance:
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: release-candidate
+          path: frontend/.output/public
+
+      # - name: Deploy till GitHub Pages -
+      #   uses: JamesIves/github-pages-deploy-action@v4.4.1
+      #   with:
+      #     folder: ./frontend/.output/public
+
+  Acceptance:
     name: Acceptance Stage
-    needs: commit
+    needs: Commit
     if: success()
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
   Production:
     name: Production Stage
-    needs: acceptance
+    needs: Acceptance
     if: success()
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Deploy till GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+
+      # - name: Installera PNPM
+      #   uses: pnpm/action-setup@v2
+      #   with:
+      #     version: 7
+
+      # - name: Deploy
+      #   run: pnpm run gh-pages-deploy
+      - name: Download build artifact
+
+        uses: actions/download-artifact@v2
         with:
-          folder: .output/public
+          # the same name as used in the build workflow
+          name: release-candidate
+          path: release-candidate
+      - name: Deploy till GitHub Pages -
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
+        with:
+          folder: "release-candidate"
