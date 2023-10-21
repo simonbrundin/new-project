@@ -21,3 +21,5 @@ cd $PATH_TO_REPOS_FOLDER
 cd $PROJECT_NAME
 rm start.sh
 
+# Öppna i Visual Studio Code
+code .
