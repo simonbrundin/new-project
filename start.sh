@@ -1,5 +1,5 @@
 #!/bin/bash
-echo 'Nu kör vi'
+echo 'Nu kör vi1'
 # Gå till mapp med repos
 set PATH_TO_REPOS_FOLDER '~/Repos'
 cd 
