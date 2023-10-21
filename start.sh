@@ -4,7 +4,7 @@ cd
 cd $PATH_TO_REPOS_FOLDER
 
 # Välj projektnamn
-read -P 'Projektnamn: ' PROJECT_NAME
+read -p 'Projektnamn: ' PROJECT_NAME
 echo $PROJECT_NAME
 
 # Klona new-project
