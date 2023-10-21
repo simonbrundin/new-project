@@ -4,7 +4,7 @@ echo 'Nu kör vi'
 set PATH_TO_REPOS_FOLDER '~/Repos'
 cd 
 cd $PATH_TO_REPOS_FOLDER
-
+pwd
 # Välj projektnamn
 read -p 'Projektnamn: ' PROJECT_NAME
 echo $PROJECT_NAME
