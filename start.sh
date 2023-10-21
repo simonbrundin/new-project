@@ -13,6 +13,6 @@ git clone https://github.com/simonbrundin/new-project.git $PROJECT_NAME
 # Installera npm paket
 set NUXT_PATH $PROJECT_NAME'/frontend/nuxt'
 cd $NUXT_PATH
-pnpm install
+bun install
 
 
