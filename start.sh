@@ -1,5 +1,5 @@
 # Gå till mapp med repos
-set PATH_TO_REPOS_FOLDER 'Repos'
+set PATH_TO_REPOS_FOLDER '~/Repos'
 cd 
 cd $PATH_TO_REPOS_FOLDER
 
