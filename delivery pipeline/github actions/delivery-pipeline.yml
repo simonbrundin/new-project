@@ -11,22 +11,17 @@ jobs:
       - name: Checkout code te
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
 
-      - name: Installera PNPM
-        uses: pnpm/action-setup@v2
-        with:
-          version: 7
-
-      - name: PNPM Install
-        run: pnpm install
+      - name: Installera NPM:paket
+        run: bun install
 
       - name: Kör tester
-        run: pnpm test
+        run: bun run test
 
       - name: Skapa Release Candidate
-        run: pnpm generate
+        run: bun run generate
         env:
           NUXT_APP_BASE_URL: /${{ github.event.repository.name }}/
 
