@@ -8,11 +8,11 @@ read -p 'Projektnamn: ' PROJECT_NAME
 echo $PROJECT_NAME
 
 # Klona new-project
-git clone https://github.com/simonbrundin/new-project.git $PROJECT_NAME
+#git clone https://github.com/simonbrundin/new-project.git $PROJECT_NAME
 
 # Installera npm paket
-set NUXT_PATH $PROJECT_NAME'/frontend/nuxt'
-cd $NUXT_PATH
-bun install
+#set NUXT_PATH $PROJECT_NAME'/frontend/nuxt'
+#cd $NUXT_PATH
+#€bun install
 
 
