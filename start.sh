@@ -3,7 +3,7 @@ read -p 'Projektnamn: ' PROJECT_NAME
 echo $PROJECT_NAME
 
 # Gå till mapp med repos
-set PATH_TO_REPOS_FOLDER 'Repos'
+PATH_TO_REPOS_FOLDER='Repos'
 cd
 cd $PATH_TO_REPOS_FOLDER
 
