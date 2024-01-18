@@ -1,9 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  extends: [
+    "gh:simonbrundin/nuxt-layers/base",
+    "gh:simonbrundin/nuxt-layers/auth",
+  ],
   ssr: false,
 
-  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "@nuxtjs/apollo"],
-  buildModules: ["@nuxt/image"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@pinia/nuxt",
+    "@nuxtjs/apollo",
+    "@nuxt/image",
+  ],
 
   css: [
     // SCSS file in the project
